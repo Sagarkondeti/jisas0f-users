@@ -46,10 +46,5 @@ public class UsersController {
 	{
 		 usersService.deleteUserDetails(id);
 	}
-//	
-//	@DeleteMapping(path = "/{id}")
-//	public UsersDTO deleteUserDetails(@PathVariable int id) {
-//		
-//		
-//	}
+
 }
