@@ -1,12 +1,11 @@
 package com.imaginnovate.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.imaginnovate.demo.DTO.UsersDTO;
 import com.imaginnovate.demo.entities.Users;
@@ -40,6 +39,11 @@ public class UsersService {
 	{
 		Users users = mm.map(usersDTO, Users.class);
 		return usersRepository.save(users);
+	}
+	
+	public Optional<Users> getUserDetails(int id)
+	{
+		return usersRepository.findById(id);
 	}
 	
 	public void deleteUserDetails(int id) 

@@ -1,6 +1,7 @@
 package com.imaginnovate.demo.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,6 +41,12 @@ public class UsersController {
 		return usersService.updateUserDetails(usersDTO);
 	}
 	
+	@GetMapping("/getUser/{id}")
+	public Optional<Users> getUserDetails(@PathVariable("id") int id)
+	{
+		
+		return usersService.getUserDetails(id);
+	}
 	
 	@DeleteMapping("/deleteUser/{id}")
 	public void deleteUserDetails(@PathVariable("id") int id) 
