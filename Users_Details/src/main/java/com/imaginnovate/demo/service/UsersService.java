@@ -24,6 +24,10 @@ public class UsersService {
 	
 	ModelMapper mm = new ModelMapper();
 	
+	public UsersService(UsersRepository usersRepository) {
+		this.usersRepository = usersRepository;
+	}
+	
 	public Users addUsersDetails(UsersDTO usersDTO)
 	{
 		Users users = mm.map(usersDTO, Users.class);

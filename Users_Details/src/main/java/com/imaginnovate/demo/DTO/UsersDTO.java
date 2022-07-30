@@ -3,8 +3,6 @@ package com.imaginnovate.demo.DTO;
 import java.util.List;
 
 import com.imaginnovate.demo.entities.Address;
-import com.imaginnovate.demo.entities.Users;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
