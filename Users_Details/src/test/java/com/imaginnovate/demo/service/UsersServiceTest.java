@@ -155,18 +155,25 @@ public class UsersServiceTest {
         when(userRepository.findById(1)).thenReturn(users1);
         
         Optional<Users> users=usersService.getUserDetails(1);
-        assertEquals("sagar kondeti", users.get().getName());
-        assertEquals("8234590922", users.get().getPhone());
-        assertEquals(1, users.get().getId());
+        assertEquals(users1.get().getName(), users.get().getName());
+        assertEquals(users1.get().getPhone(), users.get().getPhone());
+        assertEquals(users1.get().getId(), users.get().getId());
     }
     
    
     @Test
-    public void test() {
+    public void deleteByIdTest() {
     
-    usersService.deleteUserDetails(1);
-    	    
-    verify(userRepository).deleteById(1); 
+    	Address address = new Address(1,"bhanu street","garividi","vzm","65789");
+    	List<Address> userAddress = new ArrayList<>();
+        userAddress.add(address);
+        Users user = new Users(1,"sagar kondeti","sagar","sagar@gmail.com","8234590922","www.sagar.com", userAddress);
+        
+        assertEquals(1, user.getId());
+        usersService.deleteUserDetails(1); 
+        Optional<Users> users = userRepository.findById(1);
+        assertEquals(Optional.empty(), users);
+        verify(userRepository).deleteById(1);
     
     }
     
