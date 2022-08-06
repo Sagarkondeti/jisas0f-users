@@ -36,7 +36,7 @@ public class UsersController {
 	}
 	
 	@PutMapping("/updateUser")
-	public Users updateUserDetailsa(@RequestBody UsersDTO usersDTO) 
+	public Users updateUserDetails(@RequestBody UsersDTO usersDTO) 
 	{
 		return usersService.updateUserDetails(usersDTO);
 	}
