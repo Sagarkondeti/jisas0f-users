@@ -23,6 +23,10 @@ public class UsersController {
 	@Autowired
 	private UsersService usersService;
 	
+	public UsersController(UsersService usersService) {
+		this.usersService = usersService;
+	}
+	
 	@PostMapping("/addUsersDetails")
 	public Users addUsersDetails(@RequestBody UsersDTO usersDTO)
 	{
@@ -35,7 +39,7 @@ public class UsersController {
 		return usersService.getAllUsers();
 	}
 	
-	@PutMapping("/updateUser")
+	@PostMapping("/updateUser")
 	public Users updateUserDetails(@RequestBody UsersDTO usersDTO) 
 	{
 		return usersService.updateUserDetails(usersDTO);
